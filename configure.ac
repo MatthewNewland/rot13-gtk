@@ -14,11 +14,6 @@ AM_PROG_VALAC
 
 PKG_CHECK_MODULES([GTK3], [gtk+-3.0 >= 3.16])
 
-# Checks for header files.
-
-# Checks for typedefs, structures, and compiler characteristics.
-
-# Checks for library functions.
 AC_CONFIG_FILES([Makefile
                  src/Makefile])
 AC_OUTPUT
