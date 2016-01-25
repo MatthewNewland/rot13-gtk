@@ -29,7 +29,6 @@ class Rot13Window : GLib.Object {
         Gtk.TextIter end;
         buffer.get_start_iter(out start);
         buffer.get_end_iter(out end);
-        textview.set_buffer(buffer);
         var text = buffer.get_text(start, end, false);
         var encoded_text = rot13(text);
         buffer.set_text(encoded_text);
