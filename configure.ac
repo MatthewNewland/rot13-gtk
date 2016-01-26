@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([rot13-gtk], [0.1], [newlandmatthew@msn.com])
+AC_INIT([rot13-gtk], [0.1.1], [newlandmatthew@msn.com])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 
 # Checks for programs.
