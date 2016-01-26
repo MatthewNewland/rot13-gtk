@@ -15,5 +15,6 @@ AM_PROG_VALAC
 PKG_CHECK_MODULES([GTK3], [gtk+-3.0 >= 3.16])
 
 AC_CONFIG_FILES([Makefile
-                 src/Makefile])
+                 src/Makefile
+                 data/Makefile])
 AC_OUTPUT
