@@ -8,8 +8,6 @@ AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
 # Checks for programs.
 
 AC_PROG_CC
-AC_PROG_RANLIB
-AM_PROG_AR
 AM_PROG_VALAC
 
 AC_PATH_PROG([GLIB_COMPILE_RESOURCES], [glib-compile-resources], [no])   
