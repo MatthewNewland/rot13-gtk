@@ -2,27 +2,20 @@ using Gtk;
 
 extern void exit(int exit_code);
 
-class Rot13Window : GLib.Object {
+[GtkTemplate (ui = "/org/mnewland/rot13_gtk/rot13.ui")]
+class Rot13AppWindow : Gtk.ApplicationWindow {
 
-    private Gtk.Window window;
+    [GtkChild]
     private Gtk.Button button_encode;
+    [GtkChild]
     private Gtk.TextView textview;
 
-    public Rot13Window(string ui_file) {
-        var builder = new Gtk.Builder();
-        builder.add_from_file(ui_file);
-        window = builder.get_object("window1") as Gtk.Window;
-        button_encode = builder.get_object("button1") as Gtk.Button;
-        textview = builder.get_object("textview1") as Gtk.TextView;
-
-        window.destroy.connect(Gtk.main_quit);
-        button_encode.clicked.connect(on_button_encode_clicked);
+    public Rot13AppWindow(Gtk.Application app) {
+        Object(application: app);
     }
 
-    public void run() {
-        window.show_all();
-    }
 
+    [GtkCallback]
     public void on_button_encode_clicked() {
         var buffer = textview.get_buffer();
         Gtk.TextIter start;
@@ -35,28 +28,16 @@ class Rot13Window : GLib.Object {
     }
 }
 
-private string find_ui_file() {
-    var path = "rot13.ui";
-    var file = File.new_for_path(path);
-    
-    if (!file.query_exists()) {
-    
-        path = "/usr/share/rot13-gtk/rot13.ui";
-        file = File.new_for_path(path);
-        
-        if (!file.query_exists()) {
-        
-            stderr.printf("FATAL: Couldn't load UI file!");
-            exit(1);
-        }
-    } 
+public class Rot13App : Gtk.Application {
 
-    return path;
+    protected override void activate() {
+
+        base.activate();
+        var window = new Rot13AppWindow(this);
+        window.show_all();
+    }
 }
 
 public void main(string[] args) {
-    Gtk.init(ref args);
-    var rot13window = new Rot13Window(find_ui_file());
-    rot13window.run();
-    Gtk.main();
+    new Rot13App().run();
 }
