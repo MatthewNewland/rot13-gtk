@@ -1,12 +1,8 @@
 using Gtk;
 
-extern void exit(int exit_code);
-
 [GtkTemplate (ui = "/org/mnewland/rot13_gtk/rot13.ui")]
 class Rot13AppWindow : Gtk.ApplicationWindow {
 
-    [GtkChild]
-    private Gtk.Button button_encode;
     [GtkChild]
     private Gtk.TextView textview;
 
