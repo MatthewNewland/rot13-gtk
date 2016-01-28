@@ -80,7 +80,6 @@
             <property name="can_focus">False</property>
             <property name="xscale">0.5</property>
             <property name="yscale">0.25</property>
-            <property name="top_padding">50</property>
             <property name="bottom_padding">50</property>
             <property name="left_padding">25</property>
             <property name="right_padding">25</property>
